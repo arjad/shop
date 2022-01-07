@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Footer = () => {
@@ -6,15 +6,11 @@ const Footer = () => {
     <footer>
         <Container>
             <Row>
-                <Col className="text-center py-3 " > Copyright &copy;Vvork Shop</Col>
+                <Col className="text-center py-3 border-top " > Copyright &copy;Vvork Shop</Col>
             </Row>
-        </Container>
+       </Container>
     </footer>
    )
 }
 
 export default Footer
-
-
-
-

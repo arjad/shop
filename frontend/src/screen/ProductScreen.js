@@ -1,23 +1,26 @@
-import React,{useState, useEffect} from 'react';
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link, useParams } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from '../Components/Rating';
-import products from "../product";
-import axios from "axios";
+// import products from "../products";
 import { ListGroupItem } from 'react-bootstrap';
+
 const ProductScreen = ({ match }) => {
 
-   const product = products.find((p) => p._id === match.params.id)
-   const [producthook, setProducthook] = useState({})
+    // //front end data fetch
+    // const product = products.find((p) => p._id === 2);
+    // console.log("product", product);
+
+    const [product, setProduct] = useState({})
     useEffect(() => {
 
        const fetchProduct = async () => {
            const { data } = await axios.get(`/api/products/${match.params.id}`)
-           setProducthook(data)
+           setProduct(data)
        }
        fetchProduct()
     }, [match])
-    console.log(product);
+   console.log(product);
 
    return (
        <>
@@ -26,7 +29,9 @@ const ProductScreen = ({ match }) => {
            </Link>
            <Row>
                <Col md={6}>
-                   <Image src={product.image} alt={product.name} fluid />
+                   <Image 
+                    src={product.image} 
+                    alt={product.name} fluid />
                </Col>
                <Col md={3}>
                    <ListGroup variant="flush">
@@ -41,6 +46,7 @@ const ProductScreen = ({ match }) => {
                        <ListGroup.Item>
                            price:${product.price}
                        </ListGroup.Item>
+
                        <ListGroup.Item>
                            Description:${product.description}
                        </ListGroup.Item>
@@ -85,4 +91,4 @@ const ProductScreen = ({ match }) => {
    )
 }
 
-export default ProductScreen;
+export default ProductScreen
