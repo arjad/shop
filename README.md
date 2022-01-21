@@ -2,6 +2,6 @@
 mern stack project with vvork
 
 9 done
-86 slide done
+on 91 slides
 
 still in progress, working on backend mongo database
